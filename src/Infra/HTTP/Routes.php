@@ -7,6 +7,7 @@ use App\Api\Infra\Security\JWT;
 
 use App\Api\useCases\useLogin;
 use App\Api\useCases\useRegister;
+use App\Api\useCases\useNewRun;
 
 // ----------- //
 
@@ -33,6 +34,11 @@ class Routes{
             $SignUp = new useRegister;
             $SignUp->isRegister();
             break;
+
+            case 'SolicRun':
+              $useNewRun = new useNewRun;
+              $useNewRun->queryNewRun();
+              break;
             
           default:
           echo json_encode(array("status" => "not_parameters"));
